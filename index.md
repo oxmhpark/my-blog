@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: entry-page
 meta: nil
 ---
 <!-- 자유형식 -->
