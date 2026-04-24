@@ -1,4 +1,5 @@
 .license {
+	display: none;
 	a {
 		&:before {
 			display: none;
@@ -22,7 +23,7 @@
 		}
 
 		&.license-code {
-			font-weight: bolder;
+			font-weight: normal;
 		}
 
 		&.license-description {
