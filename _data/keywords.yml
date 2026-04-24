@@ -1,0 +1,9 @@
+ui:
+  read-more: 전문 읽기 &rarr;
+  read-more-bookmark: 〔…〕
+archives:
+  projects: 프로젝트
+  events: 이벤트
+  years: 연도
+types:
+  posts: 글

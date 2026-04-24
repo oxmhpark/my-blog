@@ -1,0 +1,21 @@
+---
+---
+{% assign body_class = "body-archive body-archive-event" %}
+{% include base-header.html %}
+
+{% assign post = page %}
+{% include post-format-fulltext.html %}
+
+{% assign archiveName = post.title %}
+
+{% assign events = site.archive_events | where_exp: "post", "post.events contains archiveName" | default: "" %}
+{% if events == "" %}{% assign events = "" | split: "" %}{% endif %}
+{% assign posts = events | sort: "title" %}
+{% include list-posts-as-events.html %}
+
+{% assign posts = site.entry_posts | where_exp: "post", "post.events contains archiveName" | default: "" %}
+{% if posts == "" %}{% assign posts = "" | split: "" %}{% endif %}
+{% assign posts = posts | sort: "updated" | reverse %}
+{% include list-posts.html %}
+
+{% include base-footer.html %}

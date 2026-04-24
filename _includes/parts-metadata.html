@@ -1,0 +1,160 @@
+<div class="entry-meta">
+	{% if post.meta and post.meta contains 'refs' and post.refs %}
+		<ul class="entry-meta-item entry-refs">
+			{% for ref in post.refs %}
+				<li><a href="{{ ref }}">{{ ref }}</a></li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+	{% if post.meta and post.meta contains 'queries' and post.queries %}
+		<ul class="entry-meta-item entry-queries">
+			{% assign query_pattern = site.data.queries.pattern %}
+
+			{% if post.queries.homepage %}
+				{% assign query_string = post.queries.homepage | remove: ' ' %}
+				{% assign query_class = site.data.queries.homepage.class %}
+				{% assign query_href = site.data.queries.homepage.href %}
+				{% assign query_label = site.data.queries.homepage.label %}
+				{% assign queries = query_string | split: ',' %}
+				{% for query in queries %}
+					<li class="query-{{ query_class }}"><a href='{{ query_href | replace: query_pattern, query }}'>{{ query_label }}</a></li>
+				{% endfor %}
+			{% endif %}
+
+			{% if post.queries.discord %}
+				{% assign query_string = post.queries.discord | remove: ' ' %}
+				{% assign query_class = site.data.queries.discord.class %}
+				{% assign query_href = site.data.queries.discord.href %}
+				{% assign query_label = site.data.queries.discord.label %}
+				{% assign queries = query_string | split: ',' %}
+				{% for query in queries %}
+					<li class="query-{{ query_class }}"><a href='{{ query_href | replace: query_pattern, query }}'>{{ query_label }}</a></li>
+				{% endfor %}
+			{% endif %}
+
+			{% if post.queries.youtube %}
+				{% assign query_string = post.queries.youtube | remove: ' ' %}
+				{% assign query_class = site.data.queries.youtube.class %}
+				{% assign query_href = site.data.queries.youtube.href %}
+				{% assign query_label = site.data.queries.youtube.label %}
+				{% assign queries = query_string | split: ',' %}
+				{% for query in queries %}
+					<li class="query-{{ query_class }}"><a href='{{ query_href | replace: query_pattern, query }}'>{{ query_label }}</a></li>
+				{% endfor %}
+			{% endif %}
+
+			{% if post.queries.aladin %}
+				{% assign query_string = post.queries.aladin | remove: ' ' %}
+				{% assign query_class = site.data.queries.aladin.class %}
+				{% assign query_href = site.data.queries.aladin.href %}
+				{% assign query_label = site.data.queries.aladin.label %}
+				{% assign queries = query_string | split: ',' %}
+				{% for query in queries %}
+					<li class="query-{{ query_class }}"><a href='{{ query_href | replace: query_pattern, query }}'>{{ query_label }}</a></li>
+				{% endfor %}
+			{% endif %}
+
+			{% if post.queries.imdb %}
+				{% assign query_string = post.queries.imdb | remove: ' ' %}
+				{% assign query_class = site.data.queries.imdb.class %}
+				{% assign query_href = site.data.queries.imdb.href %}
+				{% assign query_label = site.data.queries.imdb.label %}
+				{% assign queries = query_string | split: ',' %}
+				{% for query in queries %}
+					<li class="query-{{ query_class }}"><a href='{{ query_href | replace: query_pattern, query }}'>{{ query_label }}</a></li>
+				{% endfor %}
+			{% endif %}
+
+			{% if post.queries.ko %}
+				{% assign query_string = post.queries.ko | remove: ' ' %}
+				{% assign query_class = site.data.queries.ko.class %}
+				{% assign query_href = site.data.queries.ko.href %}
+				{% assign query_label = site.data.queries.ko.label %}
+				{% assign queries = query_string | split: ',' %}
+				{% for query in queries %}
+					<li class="query-{{ query_class }}"><a href='{{ query_href | replace: query_pattern, query }}'>{{ query_label }}</a></li>
+				{% endfor %}
+			{% endif %}
+
+			{% if post.queries.en %}
+				{% assign query_string = post.queries.en | remove: ' ' %}
+				{% assign query_class = site.data.queries.en.class %}
+				{% assign query_href = site.data.queries.en.href %}
+				{% assign query_label = site.data.queries.en.label %}
+				{% assign queries = query_string | split: ',' %}
+				{% for query in queries %}
+					<li class="query-{{ query_class }}"><a href='{{ query_href | replace: query_pattern, query }}'>{{ query_label }}</a></li>
+				{% endfor %}
+			{% endif %}
+
+			{% if post.queries.ja %}
+				{% assign query_string = post.queries.ja | remove: ' ' %}
+				{% assign query_class = site.data.queries.ja.class %}
+				{% assign query_href = site.data.queries.ja.href %}
+				{% assign query_label = site.data.queries.ja.label %}
+				{% assign queries = query_string | split: ',' %}
+				{% for query in queries %}
+					<li class="query-{{ query_class }}"><a href='{{ query_href | replace: query_pattern, query }}'>{{ query_label }}</a></li>
+				{% endfor %}
+			{% endif %}
+
+			{% if post.queries.namu %}
+				{% assign query_string = post.queries.namu | remove: ' ' %}
+				{% assign query_class = site.data.queries.namu.class %}
+				{% assign query_href = site.data.queries.namu.href %}
+				{% assign query_label = site.data.queries.namu.label %}
+				{% assign queries = query_string | split: ',' %}
+				{% for query in queries %}
+					<li class="query-{{ query_class }}"><a href='{{ query_href | replace: query_pattern, query }}'>{{ query_label }}</a></li>
+				{% endfor %}
+			{% endif %}
+
+			{% if post.queries.google %}
+				{% assign query_string = post.queries.google | remove: ' ' %}
+				{% assign query_class = site.data.queries.google.class %}
+				{% assign query_href = site.data.queries.google.href %}
+				{% assign query_label = site.data.queries.google.label %}
+				{% assign queries = query_string | split: ',' %}
+				{% for query in queries %}
+					<li class="query-{{ query_class }}"><a href='{{ query_href | replace: query_pattern, query }}'>{{ query_label }}</a></li>
+				{% endfor %}
+			{% endif %}
+		</ul>
+	{% endif %}
+
+	{% if post.meta and post.meta contains 'date' %}<p class="entry-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: site.format.date }}</p>{% endif %}
+	{% if post.meta and post.meta contains 'lastmod' and post.lastmod %}<p class="entry-date entry-date-modified" datetime="{{ post.lastmod | date_to_xmlschema }}">(Updated: {{ post.lastmod | date: site.format.date }})</p>{% endif %}
+
+	{% if post.meta and post.meta contains 'years' and post.years %}
+	<ul class="entry-meta-item entry-years">
+		{% for year in post.years %}
+		<li><a href="/year/{{ year }}">{{ year }}</a></li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	{% if post.meta and post.meta contains 'projects' and post.projects %}
+	<ul class="entry-meta-item entry-projects">
+		{% for project in post.projects %}
+		<li><a href="/project/{{ project | slugify }}">{{ project }}</a></li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	{% if post.meta and post.meta contains 'events' and post.events %}
+	<ul class="entry-meta-item entry-events">
+		{% for event in post.events %}
+		<li><a href="/event/{{ event | slugify }}">{{ event }}</a></li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	{% if post.meta and post.meta contains 'links' and post.links %}
+	<ul class="entry-meta-item entry-links">
+		{% for link in post.links %}
+		<li><a href="/{{ link | slugify }}">{{ link }}</a></li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+</div>
